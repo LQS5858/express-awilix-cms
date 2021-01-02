@@ -1,0 +1,24 @@
+{
+  "name": "express-awilix-templates",
+  "version": "1.0.0",
+  "description": "express+awilix+mysql模版",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LQS5858/express-awilix-templates.git"
+  },
+  "keywords": [
+    "express",
+    "mysql",
+    "redis"
+  ],
+  "author": "ricardo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LQS5858/express-awilix-templates/issues"
+  },
+  "homepage": "https://github.com/LQS5858/express-awilix-templates#readme"
+}
