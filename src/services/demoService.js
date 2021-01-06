@@ -1,10 +1,13 @@
 
 import baseService from './base'
 export default class DemoService extends baseService {
-    constructor() {
+    constructor({ demoDao }) {
         super()
+        this.demoDao = demoDao
     }
-    async findPage () {
-      
+    async findPage (params) {
+        const [err, data] = await this.demoDao.findPage(params)
+        if (!err) return this.success(null, data)
+        return this.success(err)
     }
 }
