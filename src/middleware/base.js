@@ -1,5 +1,4 @@
 import { asValue } from 'awilix'
-import { } from ''
 
 
 
@@ -12,7 +11,7 @@ export default (app) => {
                 data,
                 status,
                 success: true,
-                timestamp: Date.now(),
+                timestamp: new Date(),
                 type: 'SUCCESS'
             })
         }

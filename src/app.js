@@ -24,10 +24,10 @@ app.use(baseMiddle(app))
 app.use(authMiddle)
 app.use(express.static(path.join(__dirname, '../static')))
 
-app.use(prefixApi, loadControllers('routes/*Api.js'), {
+app.use(prefixApi, loadControllers('routes/*Api.js', {
     cwd: __dirname,
     lifetime: Lifetime.SINGLETON
-})
+}))
 
 app.use(function (req, res, next) {
     next(createError(404))

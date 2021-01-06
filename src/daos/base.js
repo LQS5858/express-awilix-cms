@@ -9,7 +9,7 @@ import { remove } from '../utils/cache'
 export default class BaseDao {
     constructor(modules) {
         this.request = modules ? modules?.request : {}
-        this.sequelize = db.sequelize
+        // this.sequelize = db.sequelize
     }
 
     // 增加

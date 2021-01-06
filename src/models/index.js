@@ -12,6 +12,8 @@ export function initModel (sequelize) {
         const model = sequelize.import(path.join(__dirname, file))
         db[model?.name] = model
     })
-    db?.sequelize = sequelize
-    db?.Sequelize = Sequelize
+    db.sequelize = sequelize
+    db.Sequelize = Sequelize
 }
+
+export default db

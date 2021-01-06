@@ -1,5 +1,5 @@
 import bodyParser from 'body-parser'
-import { route, POST, befor, before } from 'awilix-express'
+import { route, POST, before } from 'awilix-express'
 
 
 @route('/demo')

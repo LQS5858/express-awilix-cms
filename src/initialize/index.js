@@ -14,12 +14,12 @@ export default async function initialize () {
     const { mysql: mysqlConfig, redis: redisConfig } = config || {}
     const redis = new Redis(redisConfig)
     global.redis = redis
-    global.db = mysql.database
+    global.db = mysqlConfig.database
     const sequelize = initSequelize(mysqlConfig)
     initModel(sequelize)
-    const ossClient = await initOssConfig()
+    // const ossClient = await initOssConfig()
     container.register({
-        ossClient: asValue(ossClient),
+        // ossClient: asValue(ossClient),
         globalConfig: asValue(config),
         sequelize: asValue(sequelize)
     })

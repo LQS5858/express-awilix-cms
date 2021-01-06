@@ -3,7 +3,7 @@
       [
         "@babel/preset-env",
         {
-          "useBuiltIns": "usage", //polyfill按需加载
+          "useBuiltIns": false, //polyfill按需加载
           "targets": {
             "node": "current"
           }
@@ -15,6 +15,7 @@
       ["@babel/plugin-proposal-class-properties", {
         "loose": true
       }],
+      "@babel/plugin-proposal-optional-chaining",
       "@babel/plugin-transform-runtime"
     ]
   }  
