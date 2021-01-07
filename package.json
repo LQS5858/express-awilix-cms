@@ -7,7 +7,10 @@
     "clean": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/main.js --exec babel-node",
-    "build": "npm run clean && babel ./src --out-dir dist"
+    "build": "npm run clean && babel ./src --out-dir dist",
+    "start": "pm2 start pm2.json",
+    "restart": "pm2 restart pm2.json",
+    "stop": "pm2 delete pm2.json"
   },
   "repository": {
     "type": "git",
