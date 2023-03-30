@@ -1,5 +1,5 @@
 {
-  "name": "express-awilix-templates",
+  "name": "express-awilix-cms",
   "version": "1.0.0",
   "description": "express+awilix+mysql模版",
   "main": "index.js",
