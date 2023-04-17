@@ -1,4 +1,4 @@
-import Redis from "ioredis";
+// import Redis from "ioredis";
 import loadDbConfig from './dbConfig'
 
 import { initSequelize } from './sequelize'
@@ -12,8 +12,8 @@ import { initOssConfig } from './ossConfig'
 export default async function initialize () {
     const config = await loadDbConfig()
     const { mysql: mysqlConfig, redis: redisConfig } = config || {}
-    const redis = new Redis(redisConfig)
-    global.redis = redis
+    // const redis = new Redis(redisConfig)
+    // global.redis = redis
     global.db = mysqlConfig.database
     const sequelize = initSequelize(mysqlConfig)
     initModel(sequelize)
