@@ -13,8 +13,8 @@ const defaultConfig = {
     port: 3306,
     operatorsAliases: 0,
     define: {
-        updatedAt: 'updateAt',
-        createdAt: 'createdDate'
+        updatedAt: 'update_at',
+        createdAt: 'created_date'
     },
     pool: {
         max: 100,

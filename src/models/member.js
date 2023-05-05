@@ -14,18 +14,29 @@ export default function (sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: false
     },
-    nickname: {
+    nickName: {
       type: DataTypes.STRING,
-      defaultValue: 'USER_01'
+      defaultValue: 'USER_01',
+      field: 'nick_name'
     },
     password: {
+      type: DataTypes.STRING
+    },
+    wxNickName: {
+      type: DataTypes.STRING,
+      field: 'wx_nick_name'
+    },
+    phone: {
+      type: DataTypes.INTEGER(11)
+    },
+    avatar: {
       type: DataTypes.STRING
     }
   },
     {
       sequelize,
-      modelName: 'user',
-      tableName: 't_user'
+      modelName: 'member',
+      tableName: 't_member'
     }
   )
   return User
