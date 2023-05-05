@@ -8,7 +8,7 @@ import { scopePerRequest, loadControllers } from 'awilix-express'
 import container from './container'
 import baseMiddle from './middleware/base'
 import path from 'path'
-import authMiddle from './middleware/auth'
+import { authMiddleware } from './middleware/auth'
 import initialize from './initialize'
 import { prefixApi, port } from './config/index'
 import chalk from 'chalk'
@@ -21,7 +21,7 @@ app.use(bodyParser.json({
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(scopePerRequest(container))
 app.use(baseMiddle(app))
-app.use(authMiddle)
+app.use(authMiddleware)
 app.use(express.static(path.join(__dirname, '../static')))
 
 app.use(prefixApi, loadControllers('routes/*Api.js', {
