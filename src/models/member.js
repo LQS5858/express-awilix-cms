@@ -5,13 +5,10 @@ export default function (sequelize, DataTypes) {
   class User extends Sequelize.Model { }
 
   User.init({
-    id: {
+    uid: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true
-    },
-    uid: {
-      type: DataTypes.INTEGER(11),
     },
     nickName: {
       type: DataTypes.STRING,
@@ -26,7 +23,8 @@ export default function (sequelize, DataTypes) {
       field: 'wx_nick_name'
     },
     phone: {
-      type: DataTypes.INTEGER(11)
+      type: DataTypes.STRING(50),
+      allowNull: false
     },
     avatar: {
       type: DataTypes.STRING
