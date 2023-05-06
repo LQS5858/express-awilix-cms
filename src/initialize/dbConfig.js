@@ -6,7 +6,6 @@ import path from 'path'
 
 
 const configProperties = process.env.NODE_ENV === 'development' ? 'config.test.properties' : 'config.properties'
-console.log('mysql', configProperties);
 const configPath = path.resolve(process.cwd(), configProperties)
 
 export default function load () {
