@@ -12,7 +12,6 @@ export default function (sequelize, DataTypes) {
     },
     uid: {
       type: DataTypes.INTEGER(11),
-      allowNull: false
     },
     nickName: {
       type: DataTypes.STRING,

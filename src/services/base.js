@@ -1,12 +1,12 @@
 export default class baseService {
-    success (error, data = null) {
+    success (data = null, error) {
         return {
             success: true,
             error,
             data
         }
     }
-    fail (error, data = null) {
+    fail (data = null, error) {
         return {
             success: false,
             error,

@@ -1,4 +1,4 @@
-export const prefixApi = '/v2'
+export const prefixApi = '/v1'
 
 export const port = '9999'
 

@@ -33,11 +33,15 @@ app.use(function (req, res, next) {
     next(createError(404))
 })
 app.use(function (err, req, res, next) {
-    console.log(chalk.yellow('>>error>>'), chalk.red(err));
-    res.locals.message = err?.message
-    res.locals.error = req?.app?.get('env') === 'development' ? err : {}
-    res.status(err?.status || 500)
-    res.send(err)
+    try {
+        console.log(chalk.yellow('>>error>>'), chalk.red(err));
+        res.locals.message = err?.message
+        res.locals.error = req?.app?.get('env') === 'development' ? err : {}
+        res.status(err?.status || 500)
+        res.fail(null, err?.message, err?.message, err?.status)
+    } catch (error) {
+        res.fail(null, error)
+    }
 })
 
 export default async () => {

@@ -23,6 +23,7 @@ export default class BaseDao {
         )
         if (err) {
             logger.err(err)
+            return [err?.message]
         }
     }
     //删除
