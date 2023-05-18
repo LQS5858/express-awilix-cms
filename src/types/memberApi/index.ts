@@ -1,3 +1,5 @@
+import { ImemberService } from "../memberService";
+
 export interface ImemberApi {
-  memberService: string;
+  memberService: ImemberService;
 }

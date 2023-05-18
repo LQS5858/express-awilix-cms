@@ -3,10 +3,11 @@ import bodyParser from "body-parser";
 import { route, POST, before } from "awilix-express";
 import { ImemberApi } from "../types/memberApi";
 import { IexpressRequest, IexpressResponse } from "../types/app";
+import { ImemberService } from "../types/memberService";
 
 @route("/member")
 export default class MemberApi {
-  memberService: string;
+  memberService: ImemberService;
   constructor({ memberService }: ImemberApi) {
     this.memberService = memberService;
   }

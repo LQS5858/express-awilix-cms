@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, "../static")));
 
 app.use(
   prefixApi,
-  loadControllers("routes/*Api.js", {
+  loadControllers("routes/*Api.ts", {
     cwd: __dirname,
     lifetime: Lifetime.SINGLETON,
   })
