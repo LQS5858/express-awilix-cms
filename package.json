@@ -2,11 +2,11 @@
   "name": "express-awilix-cms",
   "version": "1.0.0",
   "description": "express+awilix+mysql模版",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
     "clean": "rimraf dist",
     "dev": "cross-env NODE_ENV=development nodemon ./src/main.js --exec babel-node",
-    "dev:ts": "nodemon --watch src -e ts,tsx --exec ts-node src/main.ts",
+    "dev:ts": "cross-env NODE_ENV=development nodemon --watch src -e ts,tsx,js --exec ts-node src/main.ts",
     "babel": "babel ./src --out-dir dist",
     "build": "cross-env NODE_ENV=production npm run clean && npm run babel",
     "start": "pm2 start pm2.json",

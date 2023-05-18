@@ -1,6 +1,7 @@
 // 解析数据库文件
 
-import properties from "properties";
+// import properties from "properties";
+const properties = require("properties");
 
 import path from "path";
 
