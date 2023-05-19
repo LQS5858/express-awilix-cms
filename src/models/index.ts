@@ -1,32 +1,29 @@
-import fs from "fs";
-import path from "path";
-import Sequelize from "sequelize";
+import fs from 'fs'
+import path from 'path'
+import Sequelize from 'sequelize'
 
-const db: any = {};
+const db: any = {}
 
 export function initModel(sequelize: {
-  import: (arg0: string) => any;
-  sync: () => void;
+  import: (arg0: string) => any
+  sync: () => void
 }) {
+  const fileRegex: RegExp = /\.(js|ts)$/i
+  const excludesFile: string[] = ['index.js', 'index.ts']
   fs.readdirSync(__dirname)
-    .filter(
-      (file) =>
-        file.indexOf(".") !== -1 &&
-        file.slice(-3) === ".js" &&
-        file !== "index.js"
-    )
-    .forEach((file) => {
-      const model = sequelize.import(path.join(__dirname, file));
-      (db as any)[model.name] = model;
-    });
-  Object.keys(db).forEach((moduleName: string) => {
+    .filter(file => fileRegex.test(file) && !excludesFile.includes(file))
+    .forEach(file => {
+      const model = sequelize.import(path.join(__dirname, file))
+      db[model.name] = model
+    })
+  Object.keys(db).forEach(moduleName => {
     if (db[moduleName].associate) {
-      db[moduleName].associate(db);
+      db[moduleName].associate(db)
     }
-  });
-  db.sequelize = sequelize;
-  db.Sequelize = Sequelize;
-  sequelize.sync();
+  })
+  db.sequelize = sequelize
+  db.Sequelize = Sequelize
+  sequelize.sync()
 }
 
-export default db;
+export default db

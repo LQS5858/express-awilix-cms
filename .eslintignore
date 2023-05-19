@@ -1,0 +1,16 @@
+
+node_modules/*
+index.html
+dist/*
+/public/*
+/docs/*
+/bin/*
+.husky/*
+.idea/*
+.vscode/*
+*.md
+*.woff
+*.ttf
+*.d.ts
+*.sh
+*.log

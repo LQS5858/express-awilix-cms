@@ -1,4 +1,3 @@
-declare module "*";
+declare module '*'
 
-
-export {};
+export {}

@@ -1,22 +1,19 @@
 import chalk from 'chalk'
 
 class logger {
-    constructor() {
+  constructor() {}
 
-    }
+  log(msg) {
+    console.log('log>>>', chalk.blue(msg))
+  }
 
-    log (msg) {
-        console.log('log>>>', chalk.blue(msg));
-    }
+  info(msg) {
+    console.log('info>>>', chalk.blue(msg))
+  }
 
-    info (msg) {
-        console.log('info>>>', chalk.blue(msg));
-    }
-
-    err (msg) {
-        console.log('error>>>', chalk.red(msg));
-    }
-
+  err(msg) {
+    console.log('error>>>', chalk.red(msg))
+  }
 }
 
 export default new logger()

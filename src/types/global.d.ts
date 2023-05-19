@@ -1,5 +1,4 @@
 declare global {
-  var db: any;
+  var db: any
 }
-
-export {};
+export {}

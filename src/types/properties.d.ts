@@ -1,1 +1,2 @@
-declare module "properties";
+declare module 'properties'
+declare module 'glob'

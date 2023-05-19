@@ -1,30 +1,27 @@
-import bodyParser from "body-parser";
+import bodyParser from 'body-parser'
 
-import { route, POST, before } from "awilix-express";
-import { ImemberApi } from "../types/memberApi";
-import { IexpressRequest, IexpressResponse } from "../types/app";
-import { ImemberService } from "../types/memberService";
+import { route, POST, before } from 'awilix-express'
+import { ImemberApi, ImemberService } from '../types/memberApi'
+import { IexpressRequest, IexpressResponse } from '../types/app'
 
-@route("/member")
+@route('/member')
 export default class MemberApi {
-  memberService: ImemberService;
+  memberService: ImemberService
   constructor({ memberService }: ImemberApi) {
-    this.memberService = memberService;
+    this.memberService = memberService
   }
-  @route("/login")
+  @route('/login')
   @POST()
   @before(bodyParser.json())
   async login(req: IexpressRequest, res: IexpressResponse) {
     try {
-      const { code } = req?.body || {};
+      const { code } = req?.body || {}
       // if (!code) return res.fail(null, 'code is required')
-      const { data, success, error } = await this.memberService.login(
-        req?.body
-      );
-      if (success) return res.success(data);
-      return res.fail(null, error);
+      const { data, success, error } = await this.memberService.login(req?.body)
+      if (success) return res.success(data)
+      return res.fail(null, error)
     } catch (error) {
-      return res.fail(null, error);
+      return res.fail(null, error)
     }
   }
 }

@@ -1,9 +1,6 @@
-export interface Ilogin {
-  data: object;
-  success: boolean;
-  error: string | object;
+export interface ImemberServicelogin {
+  login(body: object): any[]
 }
-
-export interface ImemberService {
-  login(body: object): Ilogin;
+export interface ImemberServiceDao {
+  memberDao: ImemberServicelogin
 }

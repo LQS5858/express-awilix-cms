@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express'
 
 interface IexpressResponse extends express.Response {
   fail: (
@@ -6,15 +6,15 @@ interface IexpressResponse extends express.Response {
     error?: string | object | null | unknown,
     message?: string,
     status?: number
-  ) => void;
+  ) => void
   success: (
     data: object,
     error?: object | string | null,
     message?: string,
     status?: number
-  ) => void;
+  ) => void
 }
 
 interface IexpressRequest extends express.Request {
-  container: any;
+  container: any
 }

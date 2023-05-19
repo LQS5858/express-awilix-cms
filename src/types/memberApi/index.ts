@@ -1,5 +1,13 @@
-import { ImemberService } from "../memberService";
-
 export interface ImemberApi {
-  memberService: ImemberService;
+  memberService: ImemberService
+}
+
+export interface Ilogin {
+  data: object
+  success: boolean
+  error: string | object
+}
+
+export interface ImemberService {
+  login(body: object): Ilogin
 }
