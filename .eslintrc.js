@@ -4,13 +4,13 @@ module.exports = {
     es2021: true,
     node: true
   },
-  parser: 'vue-eslint-parser',
   extends: 'plugin:prettier/recommended',
   overrides: [],
   parserOptions: {
-    sourceType: 'module',
-    ecmaVersion: 2020,
-    parser: 'babel-eslint'
+    parser: '@babel/eslint-parser',
+    ecmaVersion: 2022,
+    requireConfigFile: false,
+    sourceType: 'module'
   },
   rules: {
     'prettier/prettier': [2, {}, { usePrettierrc: true }]
