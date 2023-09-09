@@ -13,7 +13,10 @@ export function initModel(sequelize: {
   fs.readdirSync(__dirname)
     .filter(file => fileRegex.test(file) && !excludesFile.includes(file))
     .forEach(file => {
-      const model = sequelize.import(path.join(__dirname, file))
+      const model = require(path.join(__dirname, file)).default(
+        sequelize,
+        Sequelize
+      )
       db[model.name] = model
     })
   Object.keys(db).forEach(moduleName => {
