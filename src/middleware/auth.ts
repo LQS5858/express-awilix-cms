@@ -1,33 +1,36 @@
-// import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken'
 import fs from 'fs'
 import path from 'path'
 import { Request, Response, NextFunction } from 'express'
 import { asValue } from 'awilix'
-import { IexpressRequest } from '../types/app'
+import { IexpressRequest, IexpressResponse } from '../types/app'
+import { UN_AUTH_API_URI } from '../constant'
 
 export function authMiddleware(
   req: IexpressRequest,
-  res: Response,
+  res: IexpressResponse,
   next: NextFunction
 ) {
   req.container = req.container.createScope()
-  if (req?.path?.indexOf('static') !== -1) {
+  if (UN_AUTH_API_URI?.indexOf(req?.path) !== -1) {
     next()
     return
   }
-  // const token = req.headers.authorization
-  // if (token === 'null') {
-  //      res.fail(null, '用户未登录', '失败', 11)
-  //      return
-  // }
-  // const publicKey = fs.readFileSync(path.resolve(__dirname, '../../keys/jwt_pub.pem'))
-  // try {
-  //      const decode = jwt.verify(token, publicKey)
-  //      req.container.register({
-  //           user: asValue(decode.data)
-  //      })
-  // } catch (error) {
-  //      return res.fail(null, '用户未登录', '失败', 11)
-  // }
+  const token = req.headers.authorization
+  if (token === 'null') {
+    res.fail(null, '用户未登录', 401)
+    return
+  }
+  const publicKey = fs.readFileSync(
+    path.resolve(__dirname, '../../keys/jwt_pub.pem')
+  )
+  try {
+    const decode: any = jwt.verify(token as string, publicKey)
+    req.container.register({
+      user: asValue(decode.data)
+    })
+  } catch (error) {
+    return res.fail(null, '用户未登录', 401)
+  }
   next()
 }

@@ -1,11 +1,13 @@
+import { Icode } from '../app'
+
 export interface ImemberApi {
   memberService: ImemberService
 }
 
 export interface Ilogin {
   data: object
-  success: boolean
-  error: string | object
+  msg: string | null
+  code?: Icode
 }
 
 export interface ImemberService {

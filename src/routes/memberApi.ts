@@ -15,13 +15,11 @@ export default class MemberApi {
   @before(bodyParser.json())
   async login(req: IexpressRequest, res: IexpressResponse) {
     try {
-      const { code } = req?.body || {}
-      // if (!code) return res.fail(null, 'code is required')
-      const { data, success, error } = await this.memberService.login(req?.body)
-      if (success) return res.success(data)
-      return res.fail(null, error)
-    } catch (error) {
-      return res.fail(null, error)
+      const { data, msg, code } = await this.memberService.login(req?.body)
+      if (code === 200) return res.success(data)
+      return res.fail(null, msg, code)
+    } catch (error: any) {
+      return res.fail(null, error, 500)
     }
   }
 }

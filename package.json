@@ -1,7 +1,7 @@
 {
-  "name": "express-awilix-cms",
+  "name": "monsters-server-access",
   "version": "1.0.0",
-  "description": "express+awilix+mysql模版",
+  "description": "monsters-server-access",
   "main": "src/main.js",
   "husky": {
     "hooks": {
@@ -30,6 +30,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.2",
     "ali-oss": "^6.18.0",
     "awilix": "^8.0.1",
     "awilix-express": "^7.0.0",

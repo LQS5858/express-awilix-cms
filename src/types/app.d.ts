@@ -1,18 +1,19 @@
 import express from 'express'
 
+type Icode = 10000 | 401 | 500 | 400 | number
+
 interface IexpressResponse extends express.Response {
   fail: (
-    data: object | null,
-    error?: string | object | null | unknown,
-    message?: string,
-    status?: number
+    data: Record<string, any> | any[] | null,
+    message?: string | null,
+    code?: Icode
   ) => void
   success: (
-    data: object,
-    error?: object | string | null,
-    message?: string,
-    status?: number
+    data: Record<string, any> | any[] | null,
+    message?: string | null,
+    code?: Icode
   ) => void
+  unLogin: () => void
 }
 
 interface IexpressRequest extends express.Request {

@@ -7,6 +7,7 @@ import { Lifetime, asClass } from 'awilix'
 import { scopePerRequest, loadControllers } from 'awilix-express'
 import container from './container'
 import baseMiddle from './middleware/base'
+import httpMiddle from './middleware/http'
 import path from 'path'
 import { authMiddleware } from './middleware/auth'
 import initialize from './initialize'
@@ -22,6 +23,7 @@ app.use(
 )
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(scopePerRequest(container))
+app.use(httpMiddle as any)
 app.use(baseMiddle(app) as any)
 app.use(authMiddleware as any)
 app.use(express.static(path.join(__dirname, '../static')))
@@ -58,7 +60,9 @@ export default async () => {
       './services/*Service.ts',
       './services/*Service.js',
       './daos/*Dao.js',
-      './daos/*Dao.ts'
+      './daos/*Dao.ts',
+      './httpServices/**/*Http.ts',
+      './httpServices/**/*Http.js'
     ],
     {
       formatName: 'camelCase',

@@ -4,8 +4,11 @@ export default class MemberDao extends Base {
   modelName = 'member'
   async login(params: object) {
     try {
-      let result = await this.insert(params)
-      return result
+      let [err, data] = await this.insert(params)
+      if (err) {
+        return [err?.errors]
+      }
+      return [null, data]
     } catch (error) {
       return [error]
     }

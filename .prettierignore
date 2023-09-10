@@ -7,6 +7,5 @@
 **/*.sh
 
 public/*
-*.d.ts
 
 README.md
