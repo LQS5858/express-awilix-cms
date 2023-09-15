@@ -3,4 +3,7 @@ export interface ImemberServicelogin {
 }
 export interface ImemberServiceDao {
   memberDao: ImemberServicelogin
+  api?: any
+  $http?: any
+  memberHttp?: any
 }
