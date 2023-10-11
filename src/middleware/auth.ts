@@ -12,7 +12,11 @@ export function authMiddleware(
   next: NextFunction
 ) {
   req.container = req.container.createScope()
-  if (UN_AUTH_API_URI?.indexOf(req?.path) !== -1) {
+
+  if (
+    UN_AUTH_API_URI?.indexOf(req?.path) !== -1 ||
+    req.path?.startsWith('/static')
+  ) {
     next()
     return
   }

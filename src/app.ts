@@ -27,7 +27,7 @@ app.use(scopePerRequest(container))
 app.use(httpMiddle as any)
 app.use(baseMiddle(app) as any)
 app.use(authMiddleware as any)
-app.use(express.static(path.join(__dirname, '../static')))
+app.use('/static', express.static(path.join(__dirname, '../static') as any))
 app.use(
   prefixApi,
   loadControllers(controllerType, {

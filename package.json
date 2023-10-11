@@ -20,7 +20,6 @@
     "clean": "rimraf dist",
     "dev": "env-cmd -e development nodemon --watch src -e ts,tsx,js --exec ts-node src/main.ts",
     "tsc": "tsc",
-    "build:test": "npm run clean & npm run tsc",
     "build": "run clean &  npm run tsc",
     "start": "pm2 start pm2.json",
     "stop": "pm2 delete pm2.json",
