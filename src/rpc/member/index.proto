@@ -1,0 +1,16 @@
+syntax = "proto3";            //指定协议版本
+ 
+package myservices;
+ 
+
+service assetService{        //定义服务名
+    rpc getAsset(assetRequest) returns (assetResponse){}    //声明一个方法，使用rpc 关键字声明一个getAsset方法，该方法需要传入参数 assetRequest,会返回一个结果assetResponse
+}
+ 
+message assetRequest{        //声明方法中参数的类型    
+ 
+}
+ 
+message assetResponse{        //声明返回结果的类型
+    string message = 1;
+}
