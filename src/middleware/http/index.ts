@@ -13,6 +13,8 @@ export default function (
     timeout: 30000,
     baseURL: process.env.SERVICE_URI
   })
+  console.log('[http]', process.env.SERVICE_URI)
+
   service.interceptors.request.use((config: any) => {
     config.headers['x-request-language'] = req.headers?.['x-request-language']
     return config

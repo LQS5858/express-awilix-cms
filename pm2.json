@@ -10,9 +10,20 @@
       "instances": 1,
       "watch": false,
       "merge_logs": true,
-      "env": {
+      "env_test": {
         "NODE_ENV": "production",
-        "CONFIG_PROPERTIES": "config.properties"
+        "CONFIG_PROPERTIES": "config.properties",
+        "SERVICE_URI": "http://8.210.157.94:38080/api-t/"
+      },
+      "env_prerelease": {
+        "NODE_ENV": "production",
+        "CONFIG_PROPERTIES": "config.properties",
+        "SERVICE_URI": "http://8.210.157.94:38080/api-release/"
+      },
+      "env_production": {
+        "NODE_ENV": "production",
+        "CONFIG_PROPERTIES": "config.properties",
+        "SERVICE_URI": "http://8.210.157.94:38080/api-production/"
       }
     }
   ]
