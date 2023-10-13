@@ -1,6 +1,6 @@
 import bodyParser from 'body-parser'
 
-import { route, POST, before } from 'awilix-express'
+import { route, POST, before, GET } from 'awilix-express'
 import { ImemberApi, ImemberService } from '../types/memberApi'
 import { IexpressRequest, IexpressResponse } from '../types/app'
 
@@ -21,5 +21,10 @@ export default class MemberApi {
     } catch (error: any) {
       return res.fail(null, error, 500)
     }
+  }
+  @route('/event')
+  @GET()
+  async eventData(req: IexpressRequest, res: IexpressResponse) {
+    this.memberService.event(res)
   }
 }

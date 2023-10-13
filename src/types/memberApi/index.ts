@@ -1,4 +1,4 @@
-import { Icode } from '../app'
+import { Icode, IexpressResponse } from '../app'
 
 export interface ImemberApi {
   memberService: ImemberService
@@ -12,4 +12,5 @@ export interface Ilogin {
 
 export interface ImemberService {
   login(body: object): Ilogin
+  event(res: IexpressResponse): void
 }

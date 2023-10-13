@@ -2,6 +2,8 @@ import { asValue } from 'awilix'
 import { Request, Response, NextFunction } from 'express'
 import { Application } from 'express-serve-static-core'
 import { Icode, IexpressRequest, IexpressResponse } from '../types/app'
+import { setHeader } from '../utils/eventSource/setHeader'
+import { EVENT_SOURCE_API } from '../constant/eventSourceUri'
 
 export default (app: Application<Record<string, any>>) => {
   return (req: IexpressRequest, res: IexpressResponse, next: NextFunction) => {
@@ -44,6 +46,9 @@ export default (app: Application<Record<string, any>>) => {
     res.setHeader('access-control-max-age', 2592000)
     req.app = app
     req.container = req.container.createScope()
+    if (EVENT_SOURCE_API.includes(req.path)) {
+      setHeader(res)
+    }
     req.container.register({
       request: asValue(req),
       response: asValue(res),

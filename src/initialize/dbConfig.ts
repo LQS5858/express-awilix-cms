@@ -4,7 +4,8 @@ const properties = require('properties')
 
 import path from 'path'
 
-const configProperties: string = process.env.CONFIG_PROPERTIES as string
+const configProperties: string =
+  (process.env.CONFIG_PROPERTIES as string) || 'config.test.properties'
 
 const configPath = path.resolve(process.cwd(), configProperties)
 

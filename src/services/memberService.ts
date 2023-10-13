@@ -1,3 +1,4 @@
+import { IexpressResponse } from '../types/app'
 import { IaxiosError, IserviceFnReturn } from '../types/common'
 import { ImemberServiceDao, ImemberServicelogin } from '../types/memberService'
 import { axiosErrorFormat } from '../utils/axiosError'
@@ -23,5 +24,12 @@ export default class MemberService extends Base {
       const err = axiosErrorFormat(error as any) as IaxiosError
       return this.fail(null, err?.message, err?.code)
     }
+  }
+  async event(res: IexpressResponse) {
+    let index = 0
+    setInterval(() => {
+      index += 1
+      res.write('data: This is a message from server  ' + index + '.\n\n')
+    }, 3000)
   }
 }

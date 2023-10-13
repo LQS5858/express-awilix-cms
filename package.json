@@ -18,6 +18,7 @@
   },
   "scripts": {
     "clean": "rimraf dist",
+    "dev:inspect": "env-cmd -e development node --inspect dist/main.js",
     "dev": "env-cmd -e development nodemon --watch src -e ts,tsx,js --exec ts-node src/main.ts",
     "tsc": "tsc",
     "build": "run clean &  npm run tsc",
